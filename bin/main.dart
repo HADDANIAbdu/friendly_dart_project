@@ -11,8 +11,24 @@ void main() {
   library.addBook(book1);
   library.addBook(book2);
 
+  print("\n");
   List<Book> availableBooks = library.getAvailableBooks();
   for(Book book in availableBooks) {
     print(book.title);
   }
+
+  print("\n");
+  library.displayBooks(availableBooks);
+
+  Book book3 = Book.available(title: "1984", author: "George Orwell", year: 1949);
+  Book book4 = Book.available(title: "Pride and Prejudice", author: "Jane Austen", year: 1813);
+  
+  Library library2 = Library();
+  library2.addBook(book3);
+  library2.addBook(book4);
+
+  Library combinedLibrary = library + library2;
+  print("\n");
+  combinedLibrary.displayBooks(combinedLibrary.books);
+  
 }
